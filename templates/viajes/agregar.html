@@ -1,0 +1,108 @@
+{% extends 'viajes/base.html' %}
+
+{% block head_content %}
+<title>Agregar</title>
+{% endblock%}
+
+{% block container %}
+<form class="was-validated" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Agregar destino</h3>
+    <hr />
+    <div class="form-group row">
+      <label for="input_title" class="col-sm-2 col-form-label"
+        >Lugar</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="input_title"
+          placeholder="Titulo"
+        />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="input_description" class="col-sm-2 col-form-label"
+        >Descripción</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="input_description"
+          placeholder="Titulo"
+        />
+      </div>
+    </div>
+    <div class="form-group row class="media"">
+      <label for="file_images" class="col-sm-2 col-form-label"
+        >Imagenes</label
+      >
+      <div class="col-sm-10 form-group">
+        <label for="File">Seleccionar imagenes</label>
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            name="file_images"
+            multiple="true"
+            required
+          />
+          <label class="custom-file-label" for="file_images"
+            >Seleccionar imagenes...</label
+          >
+          <div class="invalid-feedback">
+            Se requieren imagenes
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="input_puntuation" class="col-sm-2 col-form-label"
+        >Puntaje</label
+      >
+      <div class="col-sm-10">
+        <select class="custom-select" name="input_puntuation">
+          <option selected value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="input_proces" class="col-sm-2 col-form-label"
+          >Comentarios</label
+        >
+        <div class="col-sm-10">
+          <textarea
+            class="form-control"
+            name="input_proces"
+            rows="3"
+            placeholder="Procedimiento"
+          ></textarea>
+        </div>
+      </div>
+      
+    <div class="form-group row">
+      <div class="col-sm-9"></div>
+      <div class="col-sm-3">
+        <button
+          type="submit"
+          class="btn btn-success btn-lg btn-block"
+        >
+          Aceptar
+        </button>
+      </div>
+      {% if errors %}
+        <p class="alert alert-danger mt-3">{{ errors }}</p>
+      {% endif %}
+    </div>
+  </form>
+{% endblock %}

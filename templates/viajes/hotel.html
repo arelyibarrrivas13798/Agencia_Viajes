@@ -1,0 +1,20 @@
+{% extends 'viajes/base.html' %} {% block head_content %}
+<title>Recetario</title>
+{% endblock%}
+{% block container %}
+  <h1>
+    Hoteles
+  </h1>
+  <hr />
+  <div class="card text-center">
+    {% for destino in Destinos %}
+    <div class="card-body">
+      <h5 class="card-title">{{destino.title}}</h5>
+      <p class="card-text">{{destino.description}}}</p>
+      <p class="card-text">{{destino.restaurant}}}</p>
+      <a href="#" class="btn btn-primary">ver</a>
+    </div>
+    {% endfor %}  
+  </div>
+  {% endblock %}
+</h1>

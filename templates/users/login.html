@@ -1,0 +1,40 @@
+{% block head_content %} {% load staticfiles %}
+
+<title>Login</title>
+{% endblock%} {% block container %}
+<form method="POST" style="align-content: center;">
+  {% csrf_token %}
+  <section>
+    <h3 class="mt-5 text-center">Iniciar sesión</h3>
+    <hr />
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        aria-describedby="username"
+        placeholder="Nombre de usuario"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="Contraseña"
+      />
+      <a class="float-right" style="padding: 10px;"
+        >Si aun no tienes cuenta registrate aquí</a
+      >
+    </div>
+    <button type="submit" class="btn btn-success btn-block">
+      Aceptar
+    </button>
+    {% if errors %}
+    <p class="alert alert-danger mt-3">{{ errors }}</p>
+  </section>
+  <section></section>
+  {% endif %}
+</form>
+
+{% endblock %}

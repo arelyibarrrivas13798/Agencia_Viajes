@@ -1,0 +1,24 @@
+{% extends 'viajes/base.html' %} {% block head_content %}
+<title>Destinos</title>
+{% endblock%}
+{% block container %}
+  <h1>
+    Destinos
+  </h1>
+  <hr />
+  <div class="card-deck">
+    {% for viaje in viajes %}
+      <div class="card">
+        <img class="card-img-top" src="{{ viaje.images.url }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{viaje.title}}</h5>
+          <p class="card-text">{{ viaje.description }}</p>
+          <p class="card-text">{{viaje.coments}}</p>
+          <p class="card-text">{{viaje.puntaje}}</p>
+        </div>
+      </div>
+    {% endfor %}  
+  </div>
+  {% endblock %}
+</h1>
+
